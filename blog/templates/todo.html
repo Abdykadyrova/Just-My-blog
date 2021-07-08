@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+{% include 'head.html' %}
+
+<body>
+    {% include 'body_header.html' %}
+  <form method="GET" action="/todo-add">
+        <input
+            type="text"
+            name="todo_name"
+            placeholder="название задачи"
+        >
+        <button class="btn btn-primary">Добавить</button>
+    </form>
+
+    <ul>
+        {% for todo_one in todos %}
+            <li>
+                <form method="GET" action="/todo-delete">
+                    <input
+                        type="hidden"
+                        name="todo_id"
+                        value="{{ todo_one.id }}"
+                    >
+                    {{ todo_one.todo_name }}
+                    <button class= "btn btn-danger">x</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

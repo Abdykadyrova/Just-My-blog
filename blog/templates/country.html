@@ -1,0 +1,19 @@
+<form method="GET" action="/country-add">
+<input type="text" name="country_name" placeholder="name countries">
+<button>ADD</button>
+</form>
+<ul>
+    {%for country in countries%}
+
+    <li>
+        <form method="GET" action="/country-delete">
+        <input type="hidden"
+                name="country_id"
+                value="{{country.id}}"
+        >
+        {{country.country_name}}
+        <button>delete</button>
+        </form>
+    </li>
+    {%endfor%}
+</ol>        
